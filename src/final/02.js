@@ -3,7 +3,7 @@
 
 import * as React from 'react'
 
-function Greeting({initialName = ''}) {
+function Greeting({initialName}) {
   const [name, setName] = React.useState(
     window.localStorage.getItem('name') || initialName,
   )
@@ -22,13 +22,13 @@ function Greeting({initialName = ''}) {
         <label htmlFor="name">Name: </label>
         <input value={name} onChange={handleChange} id="name" />
       </form>
-      {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+      {name ? <strong>Hello {name}</strong> : 'Please type your name {initialName}'}
     </div>
   )
 }
 
 function App() {
-  return <Greeting />
+  return <Greeting initialName="Nice Person"/>
 }
 
 export default App
